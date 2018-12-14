@@ -1,0 +1,10 @@
+Um read-write lock possui duas propriedades básicas:
+- A classe deve saber se existe algum processo escrevendo
+- A classe deve saber se existe processos lendo
+
+Um reentrant lock possui uma propriedade básica:
+- A classe deve saber quem está escrevendo (sua identidade)
+- A classe deve saber quantos estão lendo
+
+Com isso, Supomos que um leitor, ao tentar pegar o lock, encontre nenhum escritor e 2 escritores. Se forem 2 escritores distintos, ele não pode pegar o lock para escrita. Se forem 2 chamadas do mesmo processo, ele pode pegar o lock de escrita. Mas, é impossível distinguir as duas situações sem saber a identidade do processo leitor.
+Seria necessário, então, além de ter a identidade do escritor, ter todas as identidades dos escritores. Pra isso, seria necessário uma hash-table ou algo parecido.

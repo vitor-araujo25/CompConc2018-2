@@ -1,0 +1,9 @@
+A) Na implementação classe 'Prisioner' da solução incompleta, podemos ver os seguintes problemas:
+Um prisioneiro, ao entrar ou sair da sala, não notifica os demais.
+Isso pode implicar em uma execução errada da estratégia bolada pelos prisioneiros, pois dois deles podem entrar ao mesmo tempo na sala e modificar o switch, deixando ele em um estado não determinado para o sucesso da estratégia.
+
+Podemos ver a implementação do método waitUntilInCell() na solução completa, o que faz com que o prisioneiro esteja sozinho na sala antes de executar sua ação.
+
+C) this.wait() é uma implementação de um spin-lock. Por isso, fica dentro de um while().
+Spurious wakeup acontece quando uma variável de condição é sinalizada como verdadeira de uma perspectiva de uma thread, mas essa condição ainda pode ser falsa;
+Nesse caso, o wait garante que o spurious wakeup não acontecerá, pois a thread precisa verificar se a condição global é satisfeita.
