@@ -1,0 +1,35 @@
+import.java.util.concurrent;
+
+public class Account 
+{
+	int balance;
+	public void deposit(int value)
+	{
+		lock.lock();
+		try
+		{
+			balance = balance + value;
+		}
+		finally
+		{
+			lock.unlock();
+		}
+	}
+	public void withdraw(int value)
+	{
+		lock.lock();
+		try
+		{
+			while(value > balance)
+			{
+				sleep();
+			}
+			if (balance = value || balance > value)
+				balance = balance - value;			
+		}
+		finally
+		{
+			lock.unlock();
+		}
+	}
+}
